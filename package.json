@@ -1,0 +1,88 @@
+{
+  "name": "folder-selector",
+  "displayName": "Folder Selector",
+  "description": "Quickly find and navigate to any folder with live search.",
+  "version": "0.0.1",
+  "publisher": "local-author",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:folder-selector.selectFolder"
+  ],
+  "main": "out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "folder-selector.selectFolder",
+        "title": "Folder Selector: Select Folder by Name",
+        "category": "Folder Selector"
+      }
+    ],
+    "configuration": {
+      "title": "Folder Selector",
+      "properties": {
+        "folderSelector.ignoredFolders": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            ".git",
+            ".vscode",
+            "dist",
+            "build",
+            "out",
+            ".next",
+            ".nuxt",
+            "target",
+            "bin",
+            "obj",
+            "vendor",
+            "__pycache__",
+            ".pytest_cache",
+            "venv",
+            ".venv",
+            ".cursor",
+            ".github",
+            ".husky"
+          ],
+          "description": "List of folder names to ignore during scanning. Add folder names (not paths) that should be skipped.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folderSelector.ignoreDotFolders": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, automatically ignore all folders that start with a dot (e.g., .git, .vscode, .config). Set to false to include dot folders in search results."
+        },
+        "folderSelector.maxDepth": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 20,
+          "description": "Maximum depth to search for folders. Lower values improve performance in large projects."
+        },
+        "folderSelector.maxFolders": {
+          "type": "number",
+          "default": 10000,
+          "minimum": 100,
+          "maximum": 50000,
+          "description": "Maximum number of folders to scan. Prevents memory issues in very large workspaces."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "typescript": "^5.0.0"
+  }
+}
