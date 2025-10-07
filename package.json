@@ -20,6 +20,11 @@
         "command": "folder-selector.selectFolder",
         "title": "Folder Selector: Select Folder by Name",
         "category": "Folder Selector"
+      },
+      {
+        "command": "folder-selector.clearCache",
+        "title": "Folder Selector: Clear Cache",
+        "category": "Folder Selector"
       }
     ],
     "configuration": {
@@ -80,6 +85,7 @@
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
+    "@types/node": "^24.7.0",
     "@types/vscode": "^1.82.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",

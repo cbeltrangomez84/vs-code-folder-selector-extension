@@ -4,9 +4,11 @@ This extension adds a powerful command that lets you quickly find and navigate t
 
 ## Features
 
+- **Lightning fast** - Intelligent caching system indexes folders once and keeps them updated
 - **Live search** - See matching folders as you type
 - **Fuzzy matching** - Find folders by name or path fragment (e.g. `test-mcap`, `my-folder-1`, or `backend/api`)
-- **Recursive scanning** - Searches all folders in your workspace, no matter how deeply nested
+- **Auto-updating cache** - Automatically detects folder changes and updates the index
+- **Persistent cache** - Survives VS Code restarts and workspace changes
 - **Instant navigation** - Selected folder is immediately revealed in the Explorer view
 
 ## Development
@@ -68,11 +70,22 @@ This extension adds a powerful command that lets you quickly find and navigate t
 
 ## Using the Extension
 
+### Quick Folder Selection
+
 1. Open the command palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and run **Folder Selector: Select Folder by Name**.
 2. A quick pick menu appears showing available folders.
 3. Start typing to filter folders in real-time (e.g., `test-mcap`, `my-folder-1`).
 4. Use arrow keys to navigate and press `Enter` to select a folder.
 5. The selected folder is automatically revealed in the Explorer view.
+
+### Cache Management
+
+- **First run**: The extension will scan and index all folders (one-time operation)
+- **Subsequent runs**: Instant results from the cached index
+- **Auto-updates**: The cache automatically updates when folders are added/removed
+- **Manual refresh**: Use **Folder Selector: Clear Cache** to force a complete rescan
+
+> **Performance**: After the initial scan, folder selection is nearly instantaneous, even in large projects with thousands of folders.
 
 ## Configuration
 
@@ -193,6 +206,13 @@ For large projects, try these settings:
 - Check if `folderSelector.ignoreDotFolders` is hiding dot folders
 - Increase `folderSelector.maxDepth` if they're deeply nested
 - Increase `folderSelector.maxFolders` if the limit was reached
+- **Clear cache** if folders were recently added: `Folder Selector: Clear Cache`
+
+### Cache issues
+
+- **Stale results**: Use `Folder Selector: Clear Cache` to force a rescan
+- **Cache not updating**: The extension automatically watches for changes, but you can manually clear cache if needed
+- **Performance problems**: Try reducing `folderSelector.maxDepth` or adding more folders to `folderSelector.ignoredFolders`
 
 ## License
 
