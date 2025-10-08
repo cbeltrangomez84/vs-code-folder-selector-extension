@@ -1,19 +1,41 @@
 {
-  "name": "folder-selector",
-  "displayName": "Folder Selector",
+  "name": "print-tree-files-folder-selector",
+  "displayName": "Print Tree Files Folder Selector",
   "description": "Quickly find and navigate to any folder with live search.",
-  "version": "0.0.1",
-  "publisher": "local-author",
+  "version": "1.0.0",
+  "publisher": "cbeltrangomez84",
   "engines": {
     "vscode": "^1.82.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "folder",
+    "navigation",
+    "search",
+    "explorer",
+    "workspace",
+    "productivity"
+  ],
+  "author": {
+    "name": "Carlos Beltran",
+    "email": "carlosbeltran@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbeltrangomez84/vs-code-folder-selector-extension"
+  },
+  "homepage": "https://github.com/cbeltrangomez84/vs-code-folder-selector-extension#readme",
+  "bugs": {
+    "url": "https://github.com/cbeltrangomez84/vs-code-folder-selector-extension/issues"
+  },
   "activationEvents": [
     "onCommand:folder-selector.selectFolder"
   ],
   "main": "out/extension.js",
+  "icon": "assets/icon.png",
   "contributes": {
     "commands": [
       {
@@ -22,7 +44,7 @@
         "category": "Folder Selector"
       },
       {
-        "command": "folder-selector.clearCache",
+        "command": "abcd-files-tree-folder-selector.clearCache",
         "title": "Folder Selector: Clear Cache",
         "category": "Folder Selector"
       }

@@ -418,20 +418,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     quickPick.show()
   })
 
-  // Clear cache command
-  const clearCacheDisposable = vscode.commands.registerCommand("folder-selector.clearCache", async () => {
-    const result = await vscode.window.showInformationMessage("Clear Folder Selector cache? This will force a rescan on next use.", "Clear Cache", "Cancel")
-
-    if (result === "Clear Cache") {
-      await context.globalState.update("folderSelector.cache", undefined)
-      cacheManager.dispose()
-      cacheManager = new FolderCacheManager(context)
-      await cacheManager.loadCache()
-      void vscode.window.showInformationMessage("Folder Selector cache cleared successfully.")
-    }
-  })
-
-  context.subscriptions.push(disposable, clearCacheDisposable)
+  context.subscriptions.push(disposable)
 }
 
 export function deactivate(): void {
